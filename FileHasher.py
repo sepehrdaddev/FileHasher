@@ -59,15 +59,19 @@ if __name__ == '__main__':
     start_time = time.time()
     if len(sys.argv[1:]) < 1:
         print(Fore.RED + '[-] No input selected')
+        print(Fore.LIGHTYELLOW_EX + 'Usage: FileHasher <filename/s>')
     else:
         for i in sys.argv[1:]:
-            try:
-                print(Fore.GREEN + '\n   %s %s %s' % ('_' * 20, '[New File Hashed]', '_' * 20) + Fore.YELLOW
-                      + '\n   |File Name: %s\n   |File Size: %s\n   |MD5: %s\n   |SHA1: %s\n   |SHA256: %s\n   |%s'
-                      % (FileHasher.Checksum(i)))
-                files += 1
-            except:
-                continue
+            if os.path.isfile(i):
+                try:
+                    print(Fore.GREEN + '\n   %s %s %s' % ('_' * 20, '[New File Hashed]', '_' * 20) + Fore.YELLOW
+                          + '\n   |File Name: %s\n   |File Size: %s\n   |MD5: %s\n   |SHA1: %s\n   |SHA256: %s\n   |%s'
+                          % (FileHasher.Checksum(i)))
+                    files += 1
+                except:
+                    continue
+            else:
+                pass
     elapsed_time = time.time() - start_time
     print(Fore.GREEN + '\n[+] Files: %s' % files)
     print(Fore.GREEN + '[+] Elapsed time: %s' % elapsed_time)
