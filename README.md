@@ -3,7 +3,12 @@ File Hashing tool
 __FileBeast__ is an open source application used to __Hash__ files for varification
 
 ### Usage ###
-```python FileHasher.py <filename/s>```
+```python FileHasher.py <Hashing method> <Output format> <Directory/Files Path>```
+
+### Supported Methods ###
+``` SHA1 SHA256 SHA512```
+### Supported Formats ###
+``` HEX Base32 Base64 Base85```
 
 ### How to set up ###
 # A) #
