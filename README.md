@@ -1,6 +1,6 @@
-# FileHasher by __sepehrdad sh__
+# FileHasher by __Sepehrdad Sh__
 File Hashing tool
-__FileBeast__ is an open source application used to __Hash__ files for varification
+__FileHasher__ is an open source application used to __Hash__ files for verification
 
 ### Usage ###
 ```python FileHasher.py <Hashing method> <Output format> <Directory/Files Path>```
