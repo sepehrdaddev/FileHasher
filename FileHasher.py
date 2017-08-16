@@ -47,11 +47,6 @@ def Base64(text):
     return encoded.decode('utf-8')
 
 
-def Base85(text):
-    encoded = base64.b85encode(text)
-    return encoded.decode('utf-8')
-
-
 def handledirectory(path):
     for (dirpath, _, filenames) in os.walk(path):
         for filename in filenames:
@@ -82,9 +77,6 @@ def Checksum(infile, method, type):
         hashed = Base32(hasher.digest())
     elif type == 'Base64':
         hashed = Base64(hasher.digest())
-    elif type == 'Base85':
-        hashed = Base85(hasher.digest())
-
     return (os.path.realpath(infile), Getsize(infile), method,
             hashed, '_' * 59)
 
@@ -95,7 +87,7 @@ def main():
     print(Fore.LIGHTYELLOW_EX + '[Info] FileHasher by Sepehrdad Sh')
     parser = argparse.ArgumentParser()
     parser.add_argument('method', type=str, choices=['SHA1', 'SHA256', 'SHA512', 'MD5'], help='Hashing method to use')
-    parser.add_argument('format', type=str, choices=['HEX', 'Base32', 'Base64', 'Base85'], help='Output format')
+    parser.add_argument('format', type=str, choices=['HEX', 'Base32', 'Base64'], help='Output format')
     parser.add_argument('files', nargs='+', help='File/s to hash')
     args = parser.parse_args()
     for i in args.files:
@@ -120,10 +112,12 @@ def main():
                                 files += 1
                             else:
                                 print(Fore.RED + '[-] Unable to access: %s' % os.path.realpath(x))
+                                continue
                     except:
                         continue
             else:
                 print(Fore.RED + '[-] Unable to access: %s' % os.path.realpath(i))
+                continue
         else:
             print(Fore.RED + '[-] Unable to find: %s' % i)
     print(Fore.GREEN + '\n[+] Files: %s' % files)
