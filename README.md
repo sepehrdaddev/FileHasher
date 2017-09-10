@@ -8,7 +8,7 @@ __FileHasher__ is an open source application used to __Hash__ files for verifica
 ### Supported Methods ###
 ``` SHA1 SHA256 SHA512```
 ### Supported Formats ###
-``` HEX Base32 Base64 Base85```
+``` HEX Base32 Base64```
 
 ### How to set up ###
 # A) #
